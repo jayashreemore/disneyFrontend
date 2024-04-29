@@ -40,11 +40,7 @@ function Nav() {
 						Princess
 					</NavLink>
 				</li>
-                <li>
-					<NavLink to='/Register' activeclassname='active'>
-						Register
-					</NavLink>
-				</li>
+                
                 <li>
 					<NavLink to='/Search' activeclassname='active'>
 						Search
@@ -59,12 +55,15 @@ function Nav() {
                     <NavLink to='/about' activeclass='active'>
                         About
                     </NavLink>
+
                 </li>
                 <li>
-                    <NavLink to='/contact' activeclass='active'>
-                        Contact
+                    <NavLink to='/notfound' activeclass='active'>
+                        NotFound 
                     </NavLink>
+                    
                 </li>
+                
             </ul>
         </nav>
     );
