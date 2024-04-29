@@ -9,9 +9,46 @@ function Footer() {
                         Home
                     </NavLink>
                 </li>
+                
+                
                 <li>
-					<NavLink to='/products' activeclassname='active'>
-						Products
+					<NavLink to='/Login' activeclassname='active'>
+						Login
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Register' activeclassname='active'>
+						Register
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/User' activeclassname='active'>
+						User
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Movie' activeclassname='active'>
+						Movie
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Prince' activeclassname='active'>
+						Prince
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Princess' activeclassname='active'>
+						Princess
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Search' activeclassname='active'>
+						Search
+					</NavLink>
+				</li>
+                <li>
+					<NavLink to='/Review' activeclassname='active'>
+						Review
 					</NavLink>
 				</li>
                 <li>
