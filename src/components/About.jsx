@@ -1,10 +1,28 @@
-import React from 'react';
-function About() {
+
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+
+
+export default function About() {
+
     return (
-        <div>
-            <h2 >This project is all about Disney Movies Characters Prince N Princess details</h2>
-            <p> lorem </p>
-        </div>
+        <>
+            <Helmet>
+                <title> About</title>
+                <meta name='description' content='This is my About page' />
+            </Helmet>
+            <h1>About</h1>
+            <hr />
+            <p>
+            This Project is About Disney Movie Prince N Princess Character Details
+                
+            </p>
+            <p>
+                Simple Links: <Link to='/'> Home</Link>,
+                <Link to='/about'> About</Link>,
+                <Link to='/contact'>Contact</Link>
+            </p>
+        </>
     );
 }
-export default About
