@@ -10,14 +10,15 @@ function Nav() {
                     </NavLink>
                 </li>
                 
-                <li>
-					<NavLink to='/Login' activeclassname='active'>
-						Login
-					</NavLink>
-				</li>
+                
                 <li>
 					<NavLink to='/Register' activeclassname='active'>
 						Register
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to='/Login' activeclassname='active'>
+						Login
 					</NavLink>
 				</li>
                 <li>

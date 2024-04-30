@@ -13,7 +13,7 @@ export default function About() {
                 <meta name='description' content='This is my About page' />
             </Helmet>
             <h1>About</h1>
-            <hr />
+            
             <p>
             This Project is About Disney Movie Prince N Princess Character Details
                 
