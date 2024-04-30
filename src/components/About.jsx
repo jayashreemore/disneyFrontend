@@ -20,7 +20,7 @@ export default function About() {
             </p>
             <p>
                 Simple Links: <Link to='/'> Home</Link>,
-                <Link to='/about'> About</Link>,
+                <Link to='/about'> About</Link>
                 
             </p>
         </>

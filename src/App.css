@@ -40,3 +40,42 @@
 .main {
   padding: 0 0 40px 0;
 }
+
+.footer {
+  background-color: aqua;
+  color: brown;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-info h3 {
+  margin: 0;
+}
+
+.social-icons a {
+  color: black;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .social-icons {
+    margin-top: 10px;
+  }
+}
