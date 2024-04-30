@@ -12,16 +12,14 @@ export default function Home() {
             </Helmet>
 
             <h1>Home</h1>
-            <hr />
             <p>
-                Welcome to my Disney Movie Prince N Princess Projects Home Page!
-                ====================
-                This Project all about my Daughters Favorite Disney Movies and their favorite movie characters Anna , Elsa , Moana, Sofia ...
+                Welcome to my Capstone Frontend Disney Movie Prince N Princess Projects Home Page!
+                This Project is all about my Daughters Favorite Disney Movies and their favorite Prince and Princess like Anna , Elsa , Moana, Sofia ...
             </p>
             <p>
                 Simple Links: <Link to='/'> Home</Link>,
-                <Link to='/about'> About</Link>,
-                <Link to='/contact'>Contact</Link>
+                <Link to='/about'> About</Link>
+
             </p>
         </>
     );

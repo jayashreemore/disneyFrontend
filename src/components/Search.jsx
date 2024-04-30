@@ -9,6 +9,7 @@ const Search = () => {
 
     const searchMovies = async (title) => {
         try {
+        
             const response = await axios.get(`${"http://localhost:5050"}/movies/search`, {
                 params: {
                     title: title

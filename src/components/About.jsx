@@ -21,7 +21,7 @@ export default function About() {
             <p>
                 Simple Links: <Link to='/'> Home</Link>,
                 <Link to='/about'> About</Link>,
-                <Link to='/contact'>Contact</Link>
+                
             </p>
         </>
     );

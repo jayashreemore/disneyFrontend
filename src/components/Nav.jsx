@@ -26,18 +26,18 @@ function Nav() {
 					</NavLink>
 				</li>
                 <li>
-					<NavLink to='/Movie' activeclassname='active'>
-						Movie
+					<NavLink to='/MovieList' activeclassname='active'>
+						MovieList
+                    </NavLink>
+				</li>
+                <li>
+					<NavLink to='/PrinceList' activeclassname='active'>
+						PrinceList
 					</NavLink>
 				</li>
                 <li>
-					<NavLink to='/Prince' activeclassname='active'>
-						Prince
-					</NavLink>
-				</li>
-                <li>
-					<NavLink to='/Princess' activeclassname='active'>
-						Princess
+					<NavLink to='/PrincessList' activeclassname='active'>
+						PrincessList
 					</NavLink>
 				</li>
                 
