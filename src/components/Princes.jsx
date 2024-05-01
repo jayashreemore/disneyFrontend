@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 const Princes = () => {
     const [princes, setPrinces] = useState([]);
-    const LOCAL_URL = 'http://localhost:5050//princes';
+    const LOCAL_URL = 'http://localhost:5050/princes';
     const DEPLOY_URL = 'https://disneymoviecharacters-sba319.onrender.com/princes'; // Change this to your deployed backend URL
 
     const getPrinces = async () => {
         try {
-            const response = await fetch(DEPLOY_URL);
+            const response = await fetch(LOCAL_URL);
             const data = await response.json();
             setPrinces(data);
         } catch (err) {
