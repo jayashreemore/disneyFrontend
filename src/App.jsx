@@ -3,12 +3,11 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
-import Search from './components/Search';
 import NotFound from './components/NotFound';
 import User from './components/User';
-import MovieList from './components/MovieList';
-import PrinceList from './components/PrinceList';
-import PrincessList from './components/PrincessList';
+import Movies from './components/Movies';
+import Princes from './components/Princes';
+import Princesses from './components/Princesses';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Review from './pages/Review';
@@ -23,11 +22,10 @@ function App() {
         <div className='main'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path="/search" element={<Search />} />
             <Route path='/login' element={<Login />}/>
-            <Route path='/princelist' element={<PrinceList/>}/>
-            <Route path='/princesslist' element={<PrincessList />}/>
-            <Route path='/movielist' element={<MovieList />}/>
+            <Route path='/princes' element={<Princes />}/>
+            <Route path='/princesses' element={<Princesses />}/>
+            <Route path='/movies' element={<Movies/>}/>
             <Route path='/user' element={<User />}/>
             <Route path='/register' element={<Register />}/>
             <Route path='/review' element={<Review />}/>

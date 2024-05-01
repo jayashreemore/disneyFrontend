@@ -33,3 +33,5 @@ Available Routes
 Backend for this project is already deploied on Render.com . You can check that here 
 
 https://disneymoviecharacters-sba319.onrender.com
+
+click on Princesses , Princes , Movies and users it ll give you list of all , u can create , add, delete and edit all of them .

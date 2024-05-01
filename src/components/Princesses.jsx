@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const PrincessList = () => {
+const Princesses = () => {
     const [princesses, setPrincesses] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -38,4 +38,4 @@ const PrincessList = () => {
     );
 };
 
-export default PrincessList;
+export default Princesses;

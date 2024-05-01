@@ -1,3 +1,5 @@
+// Login.js
+
 import React, { useState } from 'react';
 
 const Login = () => {
@@ -7,6 +9,14 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Basic client-side validation
+        if (!email || !password) {
+            setError('Please fill in all fields');
+            return;
+        }
+
+        // Here you can send a request to your backend for authentication
         try {
             const response = await fetch('/api/login', {
                 method: 'POST',
@@ -15,20 +25,23 @@ const Login = () => {
                 },
                 body: JSON.stringify({ email, password }),
             });
+
             if (!response.ok) {
-                throw new Error('Invalid email or password');
+                const errorMessage = await response.text();
+                throw new Error(errorMessage);
             }
-            // If login successful, you might redirect the user to another page
+
+            // If authentication is successful, you can redirect or perform any other action
             console.log('Login successful');
-        } catch (err) {
-            setError(err.message);
+        } catch (error) {
+            setError(error.message || 'An error occurred during login');
         }
     };
 
     return (
         <div>
             <h2>Login</h2>
-            {error && <p>{error}</p>}
+            {error && <div style={{ color: 'red' }}>{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Email:</label>

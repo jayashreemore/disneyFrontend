@@ -1,51 +1,33 @@
+// Register.js
+
 import React, { useState } from 'react';
 
 const Register = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [error, setError] = useState('');
+    const [phone, setPhone] = useState('');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if (password !== confirmPassword) {
-            setError('Passwords do not match');
-            return;
-        }
-        try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-            if (!response.ok) {
-                throw new Error('Registration failed');
-            }
-            // If registration successful, you might redirect the user to another page
-            console.log('Registration successful');
-        } catch (err) {
-            setError(err.message);
-        }
+        // Here you can implement your registration logic, like sending a request to the backend
+        console.log('Register:', { name, email, phone });
     };
 
     return (
         <div>
             <h2>Register</h2>
-            {error && <p>{error}</p>}
             <form onSubmit={handleSubmit}>
+                <div>
+                    <label>Name:</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
                 <div>
                     <label>Email:</label>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <div>
-                    <label>Confirm Password:</label>
-                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                    <label>Phone:</label>
+                    <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 </div>
                 <button type="submit">Register</button>
             </form>

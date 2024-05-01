@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const MovieList = () => {
+const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -38,4 +38,4 @@ const MovieList = () => {
     );
 };
 
-export default MovieList;
+export default Movies;
