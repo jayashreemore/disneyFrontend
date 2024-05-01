@@ -1,60 +1,71 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-const UserForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
+const LOCAL_URL = 'http://localhost:5050/users';
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+const AddUserForm = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("https://disneymoviecharacters-sba319.onrender.com/users", formData);
-      console.log(response.data); // Handle success response
-      // Optionally, reset the form fields
-      setFormData({
-        name: '',
-        email: '',
-        phone: ''
-      });
-    } catch (error) {
-      console.error('Error creating user:', error);
-      // Handle error response
-    }
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(LOCAL_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, phone }),
+            });
+            if (!response.ok) {
+                throw new Error('Failed to add user');
+            }
+            // Reset form fields after successful submission
+            setName('');
+            setEmail('');
+            setPhone('');
+            alert('User added successfully!');
+        } catch (error) {
+            console.error('Error adding user:', error);
+            alert('Failed to add user. Please try again.');
+        }
+    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Name"
-      />
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <input
-        type="text"
-        name="phone"
-        value={formData.phone}
-        onChange={handleChange}
-        placeholder="Phone"
-      />
-      <button type="submit">Create User</button>
-    </form>
-  );
+    return (
+        <div>
+            <h2>Add New User</h2>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Email:
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Phone:
+                    <input
+                        type="text"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                    />
+                </label>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    );
 };
 
-export default UserForm;
+export default AddUserForm;

@@ -1,40 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Princes = () => {
+const LOCAL_URL = 'http://localhost:5050/princes';
+
+const PrinceList = () => {
     const [princes, setPrinces] = useState([]);
-    const LOCAL_URL = 'http://localhost:5050/princes';
-    const DEPLOY_URL = 'https://disneymoviecharacters-sba319.onrender.com/princes'; // Change this to your deployed backend URL
+    const [selectedPrince, setSelectedPrince] = useState(null);
 
-    const getPrinces = async () => {
+    useEffect(() => {
+        const fetchPrinces = async () => {
+            try {
+                const response = await fetch(LOCAL_URL);
+                const data = await response.json();
+                setPrinces(data);
+            } catch (error) {
+                console.error('Error fetching princes:', error);
+            }
+        };
+        fetchPrinces();
+    }, []);
+
+    const handlePrinceClick = async (princeId) => {
         try {
-            const response = await fetch(LOCAL_URL);
+            const response = await fetch(`${LOCAL_URL}/${princeId}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch prince details');
+            }
             const data = await response.json();
-            setPrinces(data);
-        } catch (err) {
-            console.error(err);
+            setSelectedPrince(data);
+        } catch (error) {
+            console.error('Error fetching prince details:', error);
         }
     };
 
-    useEffect(() => {
-        getPrinces();
-    }, []);
-
     return (
-        <>
-            <h1>Princes</h1>
-            {princes.length ? (
-                princes.map((prince) => (
-                    <div key={prince.id}>
-                        <h2>{prince.name}</h2>
-                        <p>Age: {prince.age}</p>
-                        {/*  can Add more details as needed */}
-                    </div>
-                ))
-            ) : (
-                <h2>No princes to display yet</h2>
+        <div>
+            <h1>Prince List</h1>
+            <ul>
+                {princes.map(prince => (
+                    <li key={prince._id} onClick={() => handlePrinceClick(prince._id)}>
+                        {prince.name}
+                    </li>
+                ))}
+            </ul>
+            {selectedPrince && (
+                <div>
+                    <h2>{selectedPrince.name}</h2>
+                    <p>Prince: {selectedPrince.prince}</p>
+                    <p>Princess: {selectedPrince.princess}</p>
+                    <p>Story: {selectedPrince.story}</p>
+                    <p>Ready to Watch: {selectedPrince.readyToWatch}</p>
+                </div>
             )}
-        </>
+        </div>
     );
 };
 
-export default Princes;
+export default PrinceList;
