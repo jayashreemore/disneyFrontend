@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import NotFound from './components/NotFound';
-import User from './components/User';
+import UserForm from './components/UserForm';
 import Movies from './components/Movies';
 import Princes from './components/Princes';
 import Princesses from './components/Princesses';
@@ -26,7 +26,7 @@ function App() {
             <Route path='/princes' element={<Princes />}/>
             <Route path='/princesses' element={<Princesses />}/>
             <Route path='/movies' element={<Movies/>}/>
-            <Route path='/user' element={<User />}/>
+            <Route path='/userform' element={<UserForm/>}/>
             <Route path='/register' element={<Register />}/>
             <Route path='/review' element={<Review />}/>
             <Route path='/about' element={<About />} />
