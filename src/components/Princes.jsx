@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Princes() {
+const Princes = () => {
     const [princes, setPrinces] = useState([]);
-    const LOCAL_URL = 'http://localhost:5050/princes';
-    const DEPLOY_URL = 'https://disneymoviecharacters-sba319.onrender.com/princes';
+    const LOCAL_URL = 'http://localhost:5050//princes';
+    const DEPLOY_URL = 'https://disneymoviecharacters-sba319.onrender.com/princes'; // Change this to your deployed backend URL
 
     const getPrinces = async () => {
         try {
-            const response = await fetch(DEPLOY_URL); // Change the URL to the princes endpoint
+            const response = await fetch(DEPLOY_URL);
             const data = await response.json();
-            console.log(data[0]);
             setPrinces(data);
         } catch (err) {
             console.error(err);
@@ -22,12 +21,13 @@ export default function Princes() {
 
     return (
         <>
-            <div>Princes</div>
+            <h1>Princes</h1>
             {princes.length ? (
                 princes.map((prince) => (
-                    <div key={prince.id}> {/* Assuming each prince has a unique ID */}
+                    <div key={prince.id}>
                         <h2>{prince.name}</h2>
-                        {/* Add more details about the prince if available */}
+                        <p>Age: {prince.age}</p>
+                        {/*  can Add more details as needed */}
                     </div>
                 ))
             ) : (
@@ -35,4 +35,6 @@ export default function Princes() {
             )}
         </>
     );
-}
+};
+
+export default Princes;

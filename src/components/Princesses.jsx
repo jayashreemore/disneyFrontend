@@ -1,40 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Princesses = () => {
     const [princesses, setPrincesses] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const LOCAL_URL = 'http://localhost:5050/princesses';
+    const DEPLOY_URL = 'https://disneymoviecharacters-sba319.onrender.com/princesses'; // Change this to your deployed backend URL
+
+    const getPrincesses = async () => {
+        try {
+            const response = await fetch(DEPLOY_URL);
+            const data = await response.json();
+            setPrincesses(data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     useEffect(() => {
-        const fetchPrincesses = async () => {
-            try {
-                const response = await axios.get('http://localhost:5050/princesses');
-                setPrincesses(response.data);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching princesses:', error);
-                setLoading(false);
-            }
-        };
-        fetchPrincesses();
+        getPrincesses();
     }, []);
 
     return (
-        <div>
-            <h2>Princesses</h2>
-            {loading ? (
-                <p>Loading princesses...</p>
+        <>
+            <h1>Princesses</h1>
+            {princesses.length ? (
+                princesses.map((princess) => (
+                    <div key={princess.id}>
+                        <h2>{princess.name}</h2>
+                        <p>Age: {princess.age}</p>
+                        {/*  can Add more details as needed */}
+                    </div>
+                ))
             ) : (
-                <ul>
-                    {princesses.map(princess => (
-                        <li key={princess._id}>
-                            <Link to={`/princesses/${princess._id}`}>{princess.name}</Link>
-                        </li>
-                    ))}
-                </ul>
+                <h2>No princesses to display yet</h2>
             )}
-        </div>
+        </>
     );
 };
 
