@@ -16,7 +16,9 @@ const AddUserForm = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ name, email, phone }),
-            });
+                
+            }); 
+            console.log(body);
             if (!response.ok) {
                 throw new Error('Failed to add user');
             }

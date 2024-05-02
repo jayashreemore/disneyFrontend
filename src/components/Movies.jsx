@@ -18,6 +18,7 @@ const MovieList = () => {
     const handleMovieClick = async (movieId) => {
         try {
             const response = await fetch(`${LOCAL_URL}/${movieId}`);
+            console.log(response);
             const data = await response.json();
             setSelectedMovie(data);
         } catch (error) {
